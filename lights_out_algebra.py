@@ -3,7 +3,7 @@
 
 import numpy as np
 
-# arma la matriz que muestra qué luces se afectan entre sí
+# arma la matriz que muestra que luces se afectan entre si
 def matriz_influencia(n):
     A = np.zeros((n*n, n*n), dtype=int)
     for i in range(n):
@@ -16,7 +16,7 @@ def matriz_influencia(n):
             if j < n-1: A[pos, i*n + (j+1)] = 1
     return A
 
-# eliminación gaussiana pero mod 2 (0/1)
+# eliminación Metodo Gauss pero mod 2 (0/1)
 def gauss_binario(A, b):
     A = A.copy()
     b = b.copy()
@@ -51,7 +51,7 @@ def lights_out(tablero):
     x = gauss_binario(A, b)
     return x.reshape((n, n))
 
-# 
+# ejemplo (el del PDF)
 tablero = np.array([
     [0, 1, 0],
     [1, 1, 0],
